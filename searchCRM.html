@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Realpage CRM | Search Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.realpage.com/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scrolltabs.css">
+    <style type="text/css">
+    .edit-photo {
+      width: 150px;
+      position: absolute;
+      bottom: 40px;
+      right: 50px;
+    }
+
+    .edit-photo-boxes {
+      position: absolute;
+      left: 40px;
+      bottom: 30px;
+      width: 500px;
+    }
+      .edit-photo-boxes ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .edit-photo-boxes ul li {
+        float: left;
+        margin-right: 0.75rem;
+      }
+
+    .tag-names span {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    } 
+
+    .ft-form .tag-input {
+      width: 80%;
+      float: right;
+    }
+
+    .custom-app-box .box-tool {
+      top: 10px;
+    }
+
+    .custom-app-box .btn-group.full .btn-block.btn.white {
+      height: 30px;
+      line-height: 1;
+    }
+
+    .custom-app-box .btn-group.full .btn-block .fa {
+      line-height: 0.8;
+    }
+
+    .custom-app-box .dropdown-menu.dropdown-menu-width .dropdown-item {
+      line-height: 2;
+    }
+
+    .box-body.m-p {
+      padding: 1.25rem;
+    }
+
+    /* Header scroll */
+    .custom-scroller {
+      width: 95%;
+      margin: 0 auto;
+    }
+    .custom-scroller .scroll_tabs_container .scroll_tab_left_button_disabled,
+    .custom-scroller .scroll_tabs_container .scroll_tab_left_button,
+    .custom-scroller .scroll_tabs_container .scroll_tab_right_button_disabled,
+    .custom-scroller .scroll_tabs_container .scroll_tab_right_button,
+    .custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
+      background-color: #FFFFFF;
+    }
+
+    .custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li {
+      color: #515356;
+      text-decoration: underline;
+      line-height: 30px;
+    }
+
+    .custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li {
+      border-right: 1px solid #cbcbcb !important;
+    }
+
+    .custom-scroller .scroll_tabs_container div.scroll_tab_inner span.scroll_tab_last, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li:last-child {
+      border-right: 0 !important;
+    }
+
+    .custom-scroller .scroll_tabs_container {
+      margin-bottom: 0;
+    }
+
+    .custom-scroller .scroll_tabs_container div.scroll_tab_inner {
+      margin-top: 5px !important;
+    }
+
+    /* App Launcher scroll */
+    .custom-app-launcher .scroll_tabs_container .scroll_tab_left_button_disabled,
+    .custom-app-launcher .scroll_tabs_container .scroll_tab_left_button,
+    .custom-app-launcher .scroll_tabs_container .scroll_tab_right_button_disabled,
+    .custom-app-launcher .scroll_tabs_container .scroll_tab_right_button,
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
+      background-color: #FFFFFF;
+      top: 15px !important;
+    }
+
+
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span, 
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner li {
+      background-color: #FFFFFF;
+      color: #515356;
+      text-align: center;
+    }
+
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span img, 
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner li img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    .custom-app-launcher .scroll_tabs_container {
+      height: 70px;
+    }
+
+    .custom-app-launcher .scroll_tabs_container div.scroll_tab_inner {
+      height: 100px;
+    }
+    /* Custom Action Bar */
+
+    .custom-action-bar .btn-group .btn {
+      border: 1px solid #CBCBCB !important;
+      border-radius: 0;
+      color: #515356 !important;
+      font-weight: 400 !important;
+      font-size: 0.875rem;
+    }
+
+    .custom-action-bar .btn-group .dropdown-toggle::after {
+      color: #CBCBCB;
+    }
+
+    .custom-action-bar .btn-group .fa {
+      color: #CBCBCB;
+      font-size: 1rem;
+      margin-right: 5px;
+    }
+    /* Custom tag input */
+    .custom-tag-input .ft-form input {
+      height: 40px;
+    }
+
+    .custom-tag-input .ft-form .input-group-btn .btn {
+      border-radius: 0;
+      border-top-left-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+    /* Custom Accordion */
+    .custom-accordion .box-header .box-tool {
+      right: 50px;
+      top: 9px;
+    }
+    .custom-accordion .box-header h3:not([collapsed]):after {
+      font-family: FontAwesome;
+      content: "\f106";
+      float: right;
+    }
+    .custom-accordion .box-header h3.collapsed:after {
+      content: "\f107";
+    }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="padding">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ft-breadcrumb l-h-1x">
+            <div class="pull-left"><i class="fa fa-search"></i></div>
+            <div class="pull-left ft-b-r">
+              <span>Search Results</span>
+              <ol class="breadcrumb">
+                <li><a href>Property CRM</a></li>
+                <li><a href>Search CRM</a></li>
+                <li class="active">Search Results</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-divider m-t-sm m-b-sm m-l-0 m-r-0"></div>
+      <div class="row custom-action-bar">
+        <div class="col-md-12">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-tags"></i> Tag
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-tags"></i> Action
+            </button>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-tags"></i> Action
+            </button>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-trash"></i> Delete
+            </button>
+          </div>
+
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v"></i> More
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+
+          <div class="btn-group pull-right" role="group">
+            <button class="md-btn md-flat text-neutral p-l-sm m-l-sm p-r-sm ft-s-18"><i class="fa fa-star text-neutral"></i></button>
+          </div>
+          <div class="btn-group pull-right" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-divider m-t-sm m-b-sm m-x-0"></div>
+
+      <!-- dropdown nav + jump-slider area -->
+      <div class="row m-y-sm">
+        <div class="col-md-2">
+          <div class="btn-group dropdown full">
+            <button class="btn btn-block white" data-toggle="dropdown"><i class="fa fa-angle-down pull-right"></i> Advanced</button>
+            <div class="dropdown-menu dropdown-menu-scale dropdown-menu-width">
+              <a class="dropdown-item" href>Relationship</a>
+              <a class="dropdown-item" href>Location</a>
+              <a class="dropdown-item" href>Current Company</a>
+              <a class="dropdown-item" href>Industry</a>
+              <a class="dropdown-item" href>Past Company</a>
+              <a class="dropdown-item" href>Years of Experience</a>
+              <a class="dropdown-item" href>Performance Rating</a>
+              <a class="dropdown-item" href>Non-Profit Interests</a>
+              <a class="dropdown-item" href>Groups</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="custom-scroller">
+            <div id="tabs1">
+              <span>Overview</span>
+              <span>Property Facts</span>
+              <span>People</span>
+              <span>Opportunities</span>
+              <span>Cases</span>
+              <span>Activities</span>
+              <span>Notes</span>
+              <span>Documents</span>
+              <span>Media</span>
+              <span>User Roles</span>
+              <span>User Rights</span>
+            </div>
+         </div>
+        </div>
+      </div>
+    
+
+      <!-- dropdown nav + jump-slider area -->
+      <!-- TAGS GO HERE -->
+      <div class="box-divider m-t-sm m-b-md m-l-0 m-r-0"></div>
+      <div class="row custom-app-box">
+          <div class="col-md-12">
+          </div>     
+    
+
+    
+    
+  <form action="#" class="m-b-md">
+    <div class="input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="Type keyword">
+      <span class="input-group-btn">
+        <button class="btn b-a no-shadow white" type="button">Search</button>
+      </span>
+    </div>
+  </form>
+  </div>
+    <p class="m-b-md"><strong>23</strong> Results found for: <strong>Keyword</strong></p>
+
+    <ul class="nav nav-sm nav-pills nav-active-primary clearfix">
+      <li class="nav-item">
+        <a class="nav-link active" href data-toggle="tab" data-target="#tab_1">All <span class="label label-xs primary m-l-xs">160</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_2">People <span class="label label-xs primary m-l-xs">369</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_3">Opportunities <span class="label label-xs success m-l-xs">12</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_4">Groups <span class="label label-xs primary m-l-xs">12</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_5">Propterties <span class="label label-xs primary m-l-xs">112</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_6">Tasks <span class="label label-xs primary m-l-xs">12</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_7">Activities <span class="label label-xs primary m-l-xs">12</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href data-toggle="tab" data-target="#tab_8">Inbox <span class="label label-xs primary m-l-xs">12</span>
+        </a>
+      </li>
+    </ul>
+
+  
+
+      <div class="box m-t p-a-sm">
+        <ul class="list">
+          <li class="list-item">
+            <div class="pull-left pull-none-xs m-r m-b w p-a-xs b-a">
+              <img src="imgres-1.jpg" class="w-full rounded">
+            </div>
+            <div class="clear">
+              <h5 class="m-a-0 m-b-sm"><a href>Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a></h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+              <p><span class="label m-r info">Tags:</span> <a href class="label m-r-sm success">Opportunities</a> <a href class="label m-r-sm warning">App </a>
+              </p>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="pull-left pull-none-xs m-r m-b w p-a-xs b-a">
+               <img src="a1.jpg" class="w-full rounded">
+            </div>
+            <div class="clear">
+                <h5 class="m-a-0 m-b-sm"><a href>Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a></h5>
+                <p class="text-muted m-b-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+                <p><span class="label m-r info">Tags:</span> <a href class="m-r-sm">admin </a> <a href class="label m-r-sm success">Opportunities</a>
+                </p>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="pull-left pull-none-xs m-r m-b w p-a-xs b-a">
+            <img src="a2.jpg" class="w-full rounded">
+            </div>
+            <div class="clear">
+              <h5 class="m-a-0 m-b-sm"><a href>Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a></h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+              <p><span class="label m-r info">Tags:</span> <a href class="m-r-sm">admin</a> <a href class="label m-r-sm warning">App </a> <a href class="label m-r-sm">Opportunities</a>
+              </p>
+            </div>
+          </li>     
+          <li class="list-item">
+            <div class="pull-left pull-none-xs m-r m-b w p-a-xs b-a">
+            <img src="a3.jpg" class="w-full rounded">
+            </div>
+            <div class="clear">
+              <h5 class="m-a-0 m-b-sm"><a href>Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a></h5>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+              <p><span class="label m-r info">Tags:</span> <a href class="m-r-sm">admin</a> <a href class="label m-r-sm success">Opportunities</a>
+              </p>
+            </div>
+          </li>     
+          <li class="list-item">
+            <div class="pull-left pull-none-xs m-r m-b w p-a-xs b-a">
+              <img src="a4.jpg" class="w-full rounded">
+            </div>
+            <div class="clear">
+                <h5 class="m-a-0 m-b-sm"><a href>Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a></h5>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+                <p><span class="label m-r info">Tags:</span> <a href class="m-r-sm">admin</a> <a href class="label m-r-sm warning">App </a>
+                </p>
+            </div>
+          </li>
+        </ul>
+        
+      </div>
+
+
+  </div>
+</div>
+
+
+<!-- ############ PAGE END-->
+
+              <div class="p-a-md">
+              
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all related results (218)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    
+     
+
+
+   
+      <div class="row"></div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script src="jquery.scrolltabs.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#tabs1').scrollTabs();
+      $('#tabs2').scrollTabs();
+    });
+  </script>
+  </body>
+</html>

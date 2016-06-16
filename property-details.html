@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.realpage.com/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scrolltabs.css">
+<style type="text/css">
+.edit-photo {
+  width: 150px;
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+}
+
+.edit-photo-boxes {
+  position: absolute;
+  left: 40px;
+  bottom: 30px;
+  width: 500px;
+}
+  .edit-photo-boxes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .edit-photo-boxes ul li {
+    float: left;
+    margin-right: 0.75rem;
+  }
+
+.tag-names span {
+  margin-right: 5px;
+  margin-bottom: 5px;
+} 
+
+.ft-form .tag-input {
+  width: 80%;
+  float: right;
+}
+
+.custom-app-box .box-tool {
+  top: 10px;
+}
+
+.custom-app-box .btn-group.full .btn-block.btn.white {
+  height: 30px;
+  line-height: 1;
+}
+
+.custom-app-box .btn-group.full .btn-block .fa {
+  line-height: 0.8;
+}
+
+.custom-app-box .dropdown-menu.dropdown-menu-width .dropdown-item {
+  line-height: 2;
+}
+
+.box-body.m-p {
+  padding: 1.25rem;
+}
+
+/* Header scroll */
+.custom-scroller {
+  width: 95%;
+  margin: 0 auto;
+}
+.custom-scroller .scroll_tabs_container .scroll_tab_left_button_disabled,
+.custom-scroller .scroll_tabs_container .scroll_tab_left_button,
+.custom-scroller .scroll_tabs_container .scroll_tab_right_button_disabled,
+.custom-scroller .scroll_tabs_container .scroll_tab_right_button,
+.custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
+  background-color: #FFFFFF;
+}
+
+.custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li {
+  color: #515356;
+  text-decoration: underline;
+  line-height: 30px;
+}
+
+.custom-scroller .scroll_tabs_container div.scroll_tab_inner span, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li {
+  border-right: 1px solid #cbcbcb !important;
+}
+
+.custom-scroller .scroll_tabs_container div.scroll_tab_inner span.scroll_tab_last, .custom-scroller .scroll_tabs_container div.scroll_tab_inner li:last-child {
+  border-right: 0 !important;
+}
+
+.custom-scroller .scroll_tabs_container {
+  margin-bottom: 0;
+}
+
+.custom-scroller .scroll_tabs_container div.scroll_tab_inner {
+  margin-top: 5px !important;
+}
+
+/* App Launcher scroll */
+.custom-app-launcher .scroll_tabs_container .scroll_tab_left_button_disabled,
+.custom-app-launcher .scroll_tabs_container .scroll_tab_left_button,
+.custom-app-launcher .scroll_tabs_container .scroll_tab_right_button_disabled,
+.custom-app-launcher .scroll_tabs_container .scroll_tab_right_button,
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
+  background-color: #FFFFFF;
+  top: 15px !important;
+}
+
+
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span, 
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner li {
+  background-color: #FFFFFF;
+  color: #515356;
+  text-align: center;
+}
+
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner span img, 
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner li img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.custom-app-launcher .scroll_tabs_container {
+  height: 70px;
+}
+
+.custom-app-launcher .scroll_tabs_container div.scroll_tab_inner {
+  height: 100px;
+}
+/* Custom Action Bar */
+
+.custom-action-bar .btn-group .btn {
+  border: 1px solid #CBCBCB !important;
+  border-radius: 0;
+  color: #515356 !important;
+  font-weight: 400 !important;
+  font-size: 0.875rem;
+}
+
+.custom-action-bar .btn-group .dropdown-toggle::after {
+  color: #CBCBCB;
+}
+
+.custom-action-bar .btn-group .fa {
+  color: #CBCBCB;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+/* Custom tag input */
+.custom-tag-input .ft-form input {
+  height: 40px;
+}
+
+.custom-tag-input .ft-form .input-group-btn .btn {
+  border-radius: 0;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+/* Custom Accordion */
+.custom-accordion .box-header .box-tool {
+  right: 50px;
+  top: 9px;
+}
+.custom-accordion .box-header h3:not([collapsed]):after {
+  font-family: FontAwesome;
+  content: "\f106";
+  float: right;
+}
+.custom-accordion .box-header h3.collapsed:after {
+  content: "\f107";
+}
+</style>
+  </head>
+  <body>
+    <div class="box">
+    <div class="padding">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="ft-breadcrumb l-h-1x">
+            <div class="pull-left"><i class="fa fa-building"></i></div>
+            <div class="pull-left ft-b-r">
+              <span>Peloquin Lofts</span>
+              <ol class="breadcrumb">
+                <li><a href>Property OS</a></li>
+                <li><a href>Properties</a></li>
+                <li><a href>My Properties</a></li>
+                <li class="active">Properties Details</li>
+              </ol>
+            </div>
+          </div>
+          <div class="pull-right text-right ft-s-12">
+            <small>Property ID#: XXX-XXX-XXXX-XXXX-XXX</small><br />
+            <small>Last modified 12/31/2015</small><br />
+            <small>by <a class="text-primary" href>User alias</a></small>
+          </div>
+        </div>
+      </div>
+      <div class="box-divider m-t-sm m-b-sm m-l-0 m-r-0"></div>
+      <div class="row custom-action-bar">
+        <div class="col-md-12">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-tags"></i> Tag
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-tags"></i> Action
+            </button>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-tags"></i> Action
+            </button>
+          </div>
+
+          <div class="btn-group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral">
+              <i class="fa fa-trash"></i> Delete
+            </button>
+          </div>
+
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v"></i> More
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+
+          <div class="btn-group pull-right" role="group">
+            <button class="md-btn md-flat text-neutral p-l-sm m-l-sm p-r-sm ft-s-18"><i class="fa fa-star text-neutral"></i></button>
+          </div>
+          <div class="btn-group pull-right" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline b-neutral text-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Sub-Category 1</a>
+              <a class="dropdown-item" href="#">Sub-Category 2</a>
+              <a class="dropdown-item" href="#">Sub-Category 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-divider m-t-sm m-b-sm m-x-0"></div>
+      <div class="row m-y-sm">
+        <div class="col-md-2">
+          <div class="btn-group dropdown full">
+            <button class="btn btn-block white" data-toggle="dropdown"><i class="fa fa-angle-down pull-right"></i> Go to Section</button>
+            <div class="dropdown-menu dropdown-menu-scale dropdown-menu-width">
+              <a class="dropdown-item" href>Sub-Category</a>
+              <a class="dropdown-item" href>Sub-Category</a>
+              <a class="dropdown-item" href>Sub-Category</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="custom-scroller">
+            <div id="tabs1">
+              <span>Overview</span>
+              <span>Property Facts</span>
+              <span>People</span>
+              <span>Opportunities</span>
+              <span>Cases</span>
+              <span>Activities</span>
+              <span>Notes</span>
+              <span>Documents</span>
+              <span>Media</span>
+              <span>User Roles</span>
+              <span>User Rights</span>
+            </div>
+         </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 m-b-md">
+          <img class="w-full" src="http://placehold.it/1920x600/" />
+          <div class="edit-photo">
+            <button class="btn rounded btn-outline b-white text-white w-full"><i class="fa fa-camera m-r"></i>Add Photo</button>
+          </div>
+          <div class="edit-photo-boxes">
+            <ul>
+              <li><img src="http://placehold.it/100x100/ffffff" /></li>
+              <li><img src="http://placehold.it/100x100/ffffff" /></li>
+              <li><img src="http://placehold.it/100x100/ffffff" /></li>
+              <li><img src="http://placehold.it/100x100/ffffff" /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 tag-names">
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+          <span class="label rounded label-lg label-tag">Tag name here <i class="fa fa-close"></i></span>
+        </div>
+        <div class="col-md-6 custom-tag-input">
+          <div class="ft-form">
+            <div class="input-group input-btn-sep">
+              <input class="form-control tag-input" placeholder="Apply existing property tag" type="text">
+              <span class="input-group-btn">
+                <button class="btn white" type="button"><i class="fa fa-tag p-r-xs"></i> New Tag</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-divider m-t-sm m-b-md m-l-0 m-r-0"></div>
+      <div class="row custom-app-box">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header neutral no-b-b">
+              <h3>Overview</h3>
+              <div class="box-tool">
+                <a class="nav-link">
+                  <button class="btn btn-sm m-l-sm white pull-right" type="submit">Edit</button>
+                </a>
+              </div>
+            </div>
+            <div class="box-body m-p">
+              <div class="clear">
+                <div class="col-md-6">
+                  <p class="m-a-0 ft-bold">The Peloquin Heights</p>
+                  <p class="m-a-0">1320-1322 W Main Street</p>
+                  <p class="m-a-0">Address 2</p>
+                  <p class="m-a-0">Dallas, TX 75204</p>
+                  <p class="m-a-0">Jefferson County</p>
+                  <p class="m-a-0">United States</p>
+                  <p class="m-a-0"><a class="text-primary" href>map</a> | <a class="text-primary" href>directions</a></p>
+                </div>
+                <div class="col-md-6">
+                  <p class="m-a-0">Property Type: Mult-Family</p>
+                  <p class="m-a-0">Subtype: Mid-Rise</p>
+                  <p class="m-a-0">Size: 145,000 SF, 130 Units</p>
+                  <p class="m-a-0">Land: 1.20 Acres</p>
+                  <p class="m-a-0">Zoning: R-4</p>
+                  <p class="m-a-0">Age: Built 1980, Renovated 2010</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header neutral no-b-b">
+              <h3>Applications Launcher</h3>
+              <div class="box-tool">
+                <div class="btn-group dropdown full">
+                  <button class="btn btn-block white" data-toggle="dropdown"><i class="fa fa-angle-down pull-right"></i> All Applications</button>
+                  <div class="dropdown-menu dropdown-menu-scale pull-right dropdown-menu-width">
+                    <a class="dropdown-item" href>Sub-Category</a>
+                    <a class="dropdown-item" href>Sub-Category</a>
+                    <a class="dropdown-item" href>Sub-Category</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-body custom-app-launcher">
+              <div class="clear">
+                <div id="tabs2">
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> OneSite</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> Velocity</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> Kigo</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> Propertyware</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                  <span><img src="http://placehold.it/50x50/42a5f5/ffffff" /> App Name</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box">
+            <div class="box-header neutral no-b-b">
+              <h3>Property Facts</h3>
+            </div>
+            <div class="box-body m-p">
+              <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="box-header neutral no-b-b">
+              <h3>Related People</h3>
+            </div>
+            <div class="box-body m-p">
+              <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="box-header neutral no-b-b">
+              <h3>RealPage User Roles & Rights</h3>
+            </div>
+            <div class="box-body m-p">
+              <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Properties</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white"><i class="fa fa-plus"></i> Link Contact to Property</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample">
+              <div class="p-a-md">
+                <table class="table m-b-0 w-full table-striped text-primary" ui-jp="footable" data-filter="#filter" data-page-size="3">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Property</th>
+                      <th data-toggle="true">Relationship</th>
+                      <th data-toggle="true">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>The Shops at Legacy</td>
+                      <td>Traffic Court Referee</td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i><i class="rp-icon-link-broken p-r-xs"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>SodaSoba</td>
+                      <td><a href>Property Manager/Operations Listing Broker/Agent</a></td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i><i class="rp-icon-link-broken p-r-xs"></i>
+                      </td>
+                    <tr>
+                      <td>Vista Village Apartments</td>
+                      <td>Tenant</td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i><i class="rp-icon-link-broken p-r-xs"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all linked properties (18)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Opportunities</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white" style=""><i class="fa fa-plus"></i> New Opportunity</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample2">
+              <div class="box-body">
+                <table class="table m-b-none w-full table-striped text-primary" data-filter="#filter"
+    data-page-size="5">
+                    <thead>
+                        <tr>
+                            <th data-toggle="true">Opportunity Type</th>
+                            <th data-toggle="true">Properties</th>
+                            <th data-toggle="true">Status</th>
+                            <th data-toggle="true">Assigned To</th>
+                            <th data-toggle="true">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">New Lease</a></td>
+                            <td><a href="">Property A, Property B</a></td>
+                            <td>Toured</td>
+                            <td><a href="">User Alias</a></td>
+                            <td><i class="rp-icon-pencil p-r-xs"></i> <i class="rp-icon-link-broken p-r-xs"></i></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">New Lease</a></td>
+                            <td><a href="">Property C</a></td>
+                            <td>Toured</td>
+                            <td><a href="">User Alias</a></td>
+                            <td><i class="rp-icon-pencil p-r-xs"></i> <i class="rp-icon-link-broken p-r-xs"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all open opportunities (112)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Cases</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white" style=""><i class="fa fa-plus"></i> Case</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample3">
+              <div class="box-body">
+                <table class="table m-b-none w-full table-striped text-primary" data-filter="#filter"
+  data-page-size="7">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Case Number #</th>
+                      <th data-toggle="true">Subject</th>
+                      <th data-toggle="true">Case Type</th>
+                      <th data-toggle="true">Status</th>
+                      <th data-toggle="true">Priority</th>
+                      <th data-toggle="true">Assigned To</th>
+                      <th data-toggle="true">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a href="">1234476587698709</a>
+                      </td>
+                      <td>
+                        <a href="">Broken Bathroom Faucet</a>
+                      </td>
+                      <td>Maitenance Request</td>
+                      <td>Pending</td>
+                      <td>08/22/16 @ 10:45AM CT</td>
+                      <td>
+                        <a href="">User Alias</a>
+                      </td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i> <i class="rp-icon-link-broken p-r-xs"></i> <i class="rp-icon-trash p-r-xs"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all open cases (22)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">Activities</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white m-r-sm" style=""><i class="fa fa-plus"></i> New Task</button> <button class="btn btn-sm rounded btn-outline b-white text-white" style=""><i class="fa fa-plus"></i> New Event</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample4">
+              <div class="box-body">
+                <table class="table m-b-0 w-full text-primary" data-filter="#filter" data-page-size=
+  "4">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Type</th>
+                      <th data-toggle="true">Subject</th>
+                      <th data-toggle="true">Last Modified</th>
+                      <th data-toggle="true">Status</th>
+                      <th data-toggle="true">Priority</th>
+                      <th data-toggle="true">Assigned to</th>
+                      <th data-toggle="true">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Event</td>
+                      <td>
+                        <a href="">Open House</a>
+                      </td>
+                      <td>MM/DD/YY at 12:30 pm CT</td>
+                      <td>In Progress</td>
+                      <td>High</td>
+                      <td>
+                        <a href="">User Alias</a>
+                      </td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i>
+                        <i class="rp-icon-copy p-r-xs"></i> 
+                        <i class="rp-icon-link-broken p-r-xs"></i>
+                        <i class="rp-icon-trash p-r-xs"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Task</td>
+                      <td>
+                        <a href="">Open House</a>
+                      </td>
+                      <td>MM/DD/YY at 1:30pm CT</td>
+                      <td>In Progress</td>
+                      <td>Low</td>
+                      <td>
+                        <a href="">User Alias</a>
+                      </td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i>
+                        <i class="rp-icon-copy p-r-xs"></i> 
+                        <i class="rp-icon-link-broken p-r-xs"></i>
+                        <i class="rp-icon-trash p-r-xs"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all open activities (3)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample5" aria-expanded="false" aria-controls="collapseExample5">Activity History</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white m-r-sm" style="">Log Call</button> <button class="btn btn-sm rounded btn-outline b-white text-white" style="">Send Email</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample5">
+              <div class="box-body">
+                <table class="table m-b-0 w-full text-primary" data-filter="#filter" data-page-size=
+  "4">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Type</th>
+                      <th data-toggle="true">Subject</th>
+                      <th data-toggle="true">Last Modified</th>
+                      <th data-toggle="true">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Task</td>
+                      <td>
+                        <a href="">Fix this problem</a>
+                      </td>
+                      <td>
+                        MM/DD/YY at 12:30pm CT<br>
+                        by <a href="">User Alias</a>
+                      </td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i> 
+                        <i class="rp-icon-copy p-r-xs"></i> 
+                        <i class="rp-icon-link-broken p-r-xs"></i>
+                        <i class="rp-icon-trash p-r-xs"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Task</td>
+                      <td>
+                        <a href="">Fix this problem</a>
+                      </td>
+                      <td>
+                        <a href="">MM/DD/YY at 2:30pm CT<br>
+                        by</a> <a href="">User Alias</a>
+                      </td>
+                      <td>
+                        <i class="rp-icon-pencil p-r-xs"></i> 
+                        <i class="rp-icon-copy p-r-xs"></i> 
+                        <i class="rp-icon-link-broken p-r-xs"></i>
+                        <i class="rp-icon-trash p-r-xs"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all open activity history (98)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample6" aria-expanded="false" aria-controls="collapseExample6">Notes</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white m-r-sm" style=""><i class="fa fa-plus"></i> New Note</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample6">
+              <div class="box-body">
+                <table class="table m-b w-full table-striped text-primary" data-filter="#filter"
+  data-page-size="3">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Subject</th>
+                      <th data-toggle="true">Last Modified</th>
+                      <th data-toggle="true">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a href="">Note Subject Goes Here</a>
+                        <p class="text text-muted">Prio ut soldaes quam. Curabitur eget quam
+                        vehile, efficitur<br>
+                        lacus sed, bibendum lacus. Nullam placerat, turpis eget accum...</p>
+                      </td>
+                      <td>
+                        MM/DD/YY at 12:30pm CT<br>
+                        by <a href="">User Alias</a>
+                      </td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i> <i class=
+                      "rp-icon-trash p-r-xs"></i></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href="">Note Subject Goes Here</a>
+                        <p class="text text-muted">Prio ut soldaes quam. Curabitur eget quam
+                        vehile, efficitur<br>
+                        lacus sed, bibendum lacus. Nullam placerat, turpis eget accum...</p>
+                      </td>
+                      <td>
+                        MM/DD/YY at 12:30pm CT<br>
+                        by <a href="">User Alias</a>
+                      </td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i> <i class=
+                      "rp-icon-trash p-r-xs"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="p-a b-t">
+                  <span class=
+                  "label rounded label-tag-sm label-tag pull-right border-color active"></span>View
+                  all notes (12)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample7" aria-expanded="false" aria-controls="collapseExample7">Documents</h3>
+              <div class="box-tool">
+                <button class="btn btn-sm rounded btn-outline b-white text-white m-r-sm" style=""><i class="fa fa-plus"></i> New Doc</button>
+              </div>
+            </div>
+            <div class="collapse b-a" id="collapseExample7">
+              <div class="box-body">
+                <table class="table m-b-0 w-full table-striped text-primary" data-filter="#filter"
+  data-page-size="3">
+                  <thead>
+                    <tr>
+                      <th data-toggle="true">Property</th>
+                      <th data-hide="phone,tablet">Relationship</th>
+                      <th data-hide="phone">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>The Shops at Legacy</td>
+                      <td>Traffic Court Referee</td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i><i class=
+                      "rp-icon-link-broken p-r-xs"></i><i class=
+                      "rp-icon-trash p-r-xs"></i></td>
+                    </tr>
+                    <tr>
+                      <td>SodaSoba</td>
+                      <td>
+                        <a href="">Property Manager/Operations Listing Broker/Agent</a>
+                      </td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i><i class=
+                      "rp-icon-link-broken p-r-xs"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Vista Village Apartments</td>
+                      <td>Tenant</td>
+                      <td><i class="rp-icon-pencil p-r-xs"></i><i class=
+                      "rp-icon-link-broken p-r-xs"></i><i class=
+                      "rp-icon-trash p-r-xs"></i></td>
+                    </tr>
+                    <tr></tr>
+                  </tbody>
+                </table>
+                <div class="m-t-md p-r-md clear">
+                  <button class="pull-right btn btn-sm rounded btn-outline b-primary text-primary">View all open documents (23)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-accordion">
+        <div class="col-md-12">
+          <div class="m-b-sm">
+            <div class="box-header primary no-b-b">
+              <h3 class="pointer" data-toggle="collapse" href="#collapseExample8" aria-expanded="false" aria-controls="collapseExample8">System Info</h3>
+            </div>
+            <div class="collapse b-a" id="collapseExample8">
+              <div class="box-body">
+                <p class="m-a-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam-a-0 m-b-smitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"></div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script src="jquery.scrolltabs.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#tabs1').scrollTabs();
+      $('#tabs2').scrollTabs();
+    });
+  </script>
+  </body>
+</html>
